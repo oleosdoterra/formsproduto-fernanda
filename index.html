@@ -688,6 +688,44 @@
       </section>
 
       <!-- =====================================================
+           TELA SOBRE A FERNANDA
+      ===================================================== -->
+      <section id="step-sobre" class="step flex-col gap-5">
+        <div class="step-content w-full flex flex-col gap-5">
+
+          <div class="flex items-center gap-2">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot active"></div>
+          </div>
+
+          <div class="form-card p-6 space-y-5">
+            <div class="flex flex-col items-center gap-3 text-center">
+              <div style="width:96px; height:96px; border-radius:50%; overflow:hidden; box-shadow:0 4px 20px rgba(139,79,163,0.35); flex-shrink:0;">
+                <img src="fernandacolombo.jpg" alt="Fernanda" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div>
+                <p class="text-[17px] font-black text-gray-900">Fernanda Colombo</p>
+                <p class="text-[12px] text-gray-400 font-semibold mt-0.5">Consultora dōTERRA · Mãe Empreendedora</p>
+              </div>
+            </div>
+
+            <p class="text-[14px] text-gray-600 leading-relaxed text-center">
+              Sou mãe de 3 filhos e consultora dōTERRA — construí minha liberdade financeira de dentro de casa através do bem-estar natural, e estou aqui pra te ajudar a encontrar os óleos essenciais certos pra sua rotina. 🌿
+            </p>
+
+            <button onclick="goToStep(12)" class="btn-primary w-full rounded-xl py-4 text-[15px]">
+              Entendi
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
            TELA 12 — FINAL ABERTA (todos os outros leads)
       ===================================================== -->
       <section id="step-12" class="step flex-col gap-4">
@@ -712,19 +750,6 @@
               Em breve eu entrarei em contato com você pelo WhatsApp para conversarmos melhor sobre suas necessidades e te auxiliar através dos óleos essenciais
             </p>
             <p id="texto-ate-breve" class="text-[15px] font-semibold" style="color:var(--primary);">Até breve! 🌿</p>
-          </div>
-
-          <div class="form-card p-5 space-y-3">
-            <div class="flex items-center gap-3">
-              <div style="width:52px; height:52px; border-radius:50%; overflow:hidden; box-shadow:0 2px 10px rgba(139,79,163,0.3); flex-shrink:0;">
-                <img src="fernandacolombo.jpg" alt="Fernanda" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <div>
-                <p class="text-[14px] font-black text-gray-900">Fernanda Colombo</p>
-                <p class="text-[11px] text-gray-400 font-semibold">Consultora dōTERRA · Mãe Empreendedora</p>
-              </div>
-            </div>
-            <p class="text-[13px] text-gray-500 leading-relaxed">Mãe de 3 filhos, construí minha liberdade financeira de dentro de casa através do bem-estar natural. Vou te ajudar a encontrar os óleos essenciais certos pra sua rotina. 🌿</p>
           </div>
 
           <div class="form-card p-5 text-center space-y-3">
@@ -782,7 +807,7 @@
 
     const progressoPorTela = {
       1: 0, 2: 12, 3: 24, 4: 40, 5: 55,
-      6: 68, 7: 78, 8: 88, 9: 93, 10: 97, 11: 100, 12: 100
+      6: 68, 7: 78, 8: 88, 9: 93, 10: 97, "sobre": 99, 11: 100, 12: 100
     };
 
     // ----------------------------------------------------------------
@@ -991,7 +1016,7 @@
       saveLead();
       const primeiro = nomeUsuario.split(" ")[0];
       document.getElementById("texto-ate-breve").textContent = `Até breve, ${primeiro}! 🌿`;
-      goToStep(12);
+      goToStep("sobre");
     }
 
     function voltarDeCidade() {
@@ -1029,7 +1054,7 @@
           saveLead();
           const primeiro = nomeUsuario.split(" ")[0];
           document.getElementById("texto-ate-breve").textContent = `Até breve, ${primeiro}! 🌿`;
-          goToStep(12);
+          goToStep("sobre");
         }
       }, 350);
     }
